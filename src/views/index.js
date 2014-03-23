@@ -24,7 +24,7 @@ define([
         },
 
         render: function() {
-            this.$el.html(TasksTemplate);
+            this.$el.html(RecordTemplate);
         },
     });
 

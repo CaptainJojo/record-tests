@@ -5,7 +5,7 @@ define([
     'localstore',
     'recordModel'
 ], function($, _, Backbone, localstore, RecordModel){
-    var TasksCollection = Backbone.Collection.extend({
+    var recordCollection = Backbone.Collection.extend({
         model: RecordModel, 
 
         initialize: function()
@@ -15,5 +15,5 @@ define([
         }
     });
 
-    return RecordCollection;
+    return recordCollection;
 });

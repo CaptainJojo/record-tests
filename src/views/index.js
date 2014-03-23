@@ -8,7 +8,18 @@ define([
 ], function($, _, Backbone, RecordModel, RecordCollection, RecordTemplate) {
 
     var RecordView = Backbone.View.extend({
+        url: '';
         el: $("#content"),
+
+        events: {
+            'submit form': 'sendUrl'
+        },
+
+        sendUrl: function(e) {
+            e.preventDefault();
+            this.url = this.$('#url').val();
+            this.initialize();
+        },
 
         initialize: function() {
             var recordCollection =  new RecordCollection();
@@ -16,6 +27,7 @@ define([
 
             var data = {
                 records: recordCollection.models,
+                url_iframe: this.url, 
                 _: _
             };
 

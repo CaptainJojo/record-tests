@@ -4,17 +4,16 @@ define([
     'backbone',
     'recordModel',
     'recordCollection',
-    'text!templates/record/index.html'
-], function($, _, Backbone, RecordModel, RecordCollection, RecordTemplate) {
+    'text!templates/record/index.html',
+    'text!templates/view.html',
+], function($, _, Backbone, RecordModel, RecordCollection, RecordTemplate, ViewTemplate) {
 
     var RecordView = Backbone.View.extend({
-        url: 'http://backbonejs.org',
         el: $("#content"),
         recordCollection: new RecordCollection(),
 
         events: {
-            'submit form': 'sendUrl',
-            'click #followiframe': 'eachClick',
+            'click #followview': 'eachClick',
         },
 
         eachClick: function(e) {
@@ -31,18 +30,11 @@ define([
             console.log(this.recordCollection);
         },        
 
-        sendUrl: function(e) {
-            e.preventDefault();
-            this.url = this.$('#url').val();
-            this.initialize();
-        },
-
         initialize: function() {
             this.recordCollection.fetch();
 
             var data = {
                 records: this.recordCollection.models,
-                url_iframe: this.url, 
                 _: _
             };
 
@@ -52,6 +44,7 @@ define([
 
         render: function() {
             this.$el.html(RecordTemplate);
+            this.$('#followview').html(ViewTemplate);
             this.initialize();
         },
     });

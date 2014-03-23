@@ -10,7 +10,7 @@ define([
 
     var RecordView = Backbone.View.extend({
         el: $("#content"),
-        recordCollection: new RecordCollection();
+        recordCollection: new RecordCollection(),
 
         events: {
             'click #followview': 'eachClick',

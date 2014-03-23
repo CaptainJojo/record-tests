@@ -10,24 +10,38 @@ define([
     var RecordView = Backbone.View.extend({
         url: 'http://backbonejs.org',
         el: $("#content"),
+        recordCollection: new RecordCollection(),
 
         events: {
-            'submit form': 'sendUrl'
+            'submit form': 'sendUrl',
+            'click #followiframe': 'eachClick',
         },
+
+        eachClick: function(e) {
+            e.preventDefault();
+            var target = e.target();
+
+            var record = new RecordModel();
+            record.setSelector(target);
+            record.setEvent('click');
+
+            this.recordCollection.add(record);
+            record.save();
+
+            console.log(this.recordCollection);
+        },        
 
         sendUrl: function(e) {
             e.preventDefault();
             this.url = this.$('#url').val();
-   console.log(this.url); 
-           this.initialize();
+            this.initialize();
         },
 
         initialize: function() {
-            var recordCollection =  new RecordCollection();
-            recordCollection.fetch();
+            this.recordCollection.fetch();
 
             var data = {
-                records: recordCollection.models,
+                records: this.recordCollection.models,
                 url_iframe: this.url, 
                 _: _
             };

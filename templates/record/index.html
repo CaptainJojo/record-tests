@@ -1,4 +1,11 @@
 <div id="records-list">
+	<div style="float:left;width:500px">
+
+	<form>
+	<input type="text" id="url"/>
+	<input type="submit"/>
+	</form>
+
     <table>
 	    <tr>
 	    	<td>Selecteur</td>
@@ -15,6 +22,11 @@
 	    </tr>
         <% }); %>
     </table>
+    </div>
 
+    <div style="float:left;width:500px">
+    <iframe id='followiframe' src='<%= url_iframe %>' width=''></iframe>
+    </div>
 
+    <div style="clear:both"></div>
 </div>

@@ -19,12 +19,13 @@ define([
             e.preventDefault();
             var target = e.target;
 
+            var recordCollection = new RecordCollection();
+            recordCollection.fetch();
+
             var record = new RecordModel();
             record.setSelector(target);
             record.setEvent('click');
 
-            var recordCollection = new RecordCollection();
-            recordCollection.fetch();
             recordCollection.add(record);
             record.save();
 

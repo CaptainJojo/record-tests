@@ -10,6 +10,7 @@ define([
 
     var RecordView = Backbone.View.extend({
         el: $("#content"),
+        recordCollection: new RecordCollection();
 
         events: {
             'click #followview': 'eachClick',
@@ -19,22 +20,18 @@ define([
             e.preventDefault();
             var target = e.target;
 
-            var recordCollection = new RecordCollection();
-            recordCollection.fetch();
-
             var record = new RecordModel();
             record.setSelector(target);
             record.setEvent('click');
 
-            recordCollection.add(record);
+            this.recordCollection.add(record);
             record.save();
 
             console.log(recordCollection);
         },        
 
         initialize: function() {
-            var recordCollection = new RecordCollection();
-            recordCollection.fetch();
+            this.recordCollection.fetch();
 
             var data = {
                 records: recordCollection.models,

@@ -5,7 +5,7 @@ define([
     'localstore',
     'recordModel'
 ], function($, _, Backbone, localstore, RecordModel){
-    var recordCollection = Backbone.Collection.extend({
+    var RecordCollection = Backbone.Collection.extend({
         model: RecordModel, 
 
         initialize: function()
@@ -15,5 +15,5 @@ define([
         }
     });
 
-    return recordCollection;
+    return RecordCollection;
 });

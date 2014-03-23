@@ -7,10 +7,10 @@ define([
 ], function($, _, Backbone, localstore, RecordModel){
     var RecordCollection = Backbone.Collection.extend({
         model: RecordModel, 
+        localStorage: new Backbone.LocalStorage("records"),
 
         initialize: function()
         {
-            this.localStorage = new Store("records");
  	        console.log('Record collection Constructor');
         }
     });

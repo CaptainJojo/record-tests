@@ -2,8 +2,8 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'models/record.js',
-    'collections/records.js',
+    'recordModel',
+    'recordCollection',
     'text!templates/record/index.html'
 ], function($, _, Backbone, RecordModel, RecordCollection, RecordTemplate) {
 
@@ -24,7 +24,8 @@ define([
         },
 
         render: function() {
-            this.$el.html(TasksTemplate);
+            this.$el.html(RecordTemplate);
+            this.initialize();
         },
     });
 

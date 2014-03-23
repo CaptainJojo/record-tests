@@ -27,7 +27,7 @@ define([
             this.recordCollection.add(record);
             record.save();
 
-            console.log(recordCollection);
+            console.log(this.recordCollection);
         },        
 
         initialize: function() {

@@ -8,7 +8,7 @@ define([
 ], function($, _, Backbone, RecordModel, RecordCollection, RecordTemplate) {
 
     var RecordView = Backbone.View.extend({
-        url: '';
+        url: 'http://backbonejs.org',
         el: $("#content"),
 
         events: {
@@ -18,7 +18,8 @@ define([
         sendUrl: function(e) {
             e.preventDefault();
             this.url = this.$('#url').val();
-            this.initialize();
+   console.log(this.url); 
+           this.initialize();
         },
 
         initialize: function() {
@@ -32,7 +33,7 @@ define([
             };
 
             var compiledTemplate = _.template(RecordTemplate, data);
-            $("#records-list").html(compiledTemplate);
+            this.$el.html(compiledTemplate);
         },
 
         render: function() {

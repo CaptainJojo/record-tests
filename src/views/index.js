@@ -34,7 +34,7 @@ define([
             this.recordCollection.fetch();
 
             var data = {
-                records: recordCollection.models,
+                records: this.recordCollection.models,
                 _: _
             };
 

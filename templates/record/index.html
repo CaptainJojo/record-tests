@@ -1,0 +1,20 @@
+<div id="records-list">
+    <table>
+	    <tr>
+	    	<td>Selecteur</td>
+	    	<td>Evennement</td>
+	    </tr>
+        <% _.each(records, function(record){ %>
+        <tr>
+	    	<td>
+                <%= record.get("selector") %>
+            </td>
+	    	<td>
+                <%= record.get("event") %>
+            </td>
+	    </tr>
+        <% }); %>
+    </table>
+
+
+</div>

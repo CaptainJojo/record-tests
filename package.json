@@ -1,0 +1,24 @@
+{
+  "name": "record-test",
+  "version": "0.0.1",
+  "description": "Install this plugin for record test Jasmine for backbone ",
+  "dependencies": {
+    "gulp": "~3.4.0",
+    "gulp-util": "~2.2.14",
+    "gulp-concat": "~2.1.7",
+    "gulp-minify-css": "~0.3.0",
+    "gulp-csslint": "~0.1.3",
+    "gulp-uglify": "~0.2.1",
+    "gulp-jshint": "~1.5.0",
+    "gulp-bower": "~0.0.3"
+  },
+  "devDependencies": {
+    "karma": "~0.9",
+    "karma-jasmine": "~0.2.1",
+    "karma-requirejs": "~0.2.1",
+    "karma-phantomjs-launcher": "~0.1.2"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
+  }
+}

@@ -25,6 +25,7 @@ define([
 
         render: function() {
             this.$el.html(RecordTemplate);
+            this.initialize();
         },
     });
 

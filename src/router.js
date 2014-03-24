@@ -3,8 +3,9 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'recordView'
-], function($, _, Backbone, RecordView) {
+    'recordView',
+    'defaultView'
+], function($, _, Backbone, RecordView, DefaultView) {
 
     var AppRouter = Backbone.Router.extend({
         routes: {
@@ -20,6 +21,9 @@ define([
         var recordView = new RecordView();
         recordView.render();
     }); 
+
+    var defaultView = new DefaultView();
+    defaultView.render();
 
     Backbone.history.start();
   };

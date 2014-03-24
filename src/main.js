@@ -8,7 +8,8 @@ requirejs.config({
         templates: '../templates',
         recordModel: '../src/models/record',
         recordCollection: '../src/collections/records',
-        recordView: '../src/views/index'
+        recordView: '../src/views/index',
+        defaultView: '../src/views/view',
     }
 });
 

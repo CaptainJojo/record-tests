@@ -27,14 +27,7 @@ define([
             recordCollection.add(recordModel);
             recordModel.save();
 
-            var data = {
-                records: recordCollection.models,
-                _: _
-            };
-
-            var compiledTemplate = _.template(RecordTemplate, data);
-            this.$el.html(compiledTemplate);
-            this.$('#followview').html(ViewTemplate);
+            this.initialize();
         },        
 
         initialize: function() {
@@ -48,13 +41,10 @@ define([
 
             var compiledTemplate = _.template(RecordTemplate, data);
             this.$el.html(compiledTemplate);
-            this.$('#followview').html(ViewTemplate);
         },
 
         render: function() {
             this.$el.html(RecordTemplate);
-            
-            this.initialize();
         },
     });
 

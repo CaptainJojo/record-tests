@@ -1,28 +1,16 @@
-<div id='records-list'>
-	<div style="float:left;width:400px">
-
-    <table>
-	    <tr>
-	    	<td>Selecteur</td>
-	    	<td>Evennement</td>
-	    </tr>
-        <% _.each(records, function(record){ %>
-        <tr>
-	    	<td>
-                <%= record.get("selector") %>
-            </td>
-	    	<td>
-                <%= record.get("event") %>
-            </td>
-	    </tr>
-        <% }); %>
-    </table>
-    </div>
-
-    <div style="float:left;width:700px" id="followview">
-
-    
-    </div>
-
-    <div style="clear:both"></div>
-</div>
+<table>
+    <tr>
+        <td>Selecteur</td>
+        <td>Evennement</td>
+    </tr>
+    <% _.each(records, function(record){ %>
+    <tr>
+        <td>
+            <%= record.get("selector") %>
+        </td>
+        <td>
+            <%= record.get("event") %>
+        </td>
+    </tr>
+    <% }); %>
+</table>

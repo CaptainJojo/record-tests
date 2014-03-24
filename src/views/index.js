@@ -21,6 +21,7 @@ define([
             var recordCollection = new RecordCollection();
             recordCollection.fetch();
             var recordModel = new RecordModel();
+            console.log(target);
             recordModel.setSelector(target);
             recordModel.setEvent('click');
 

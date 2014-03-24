@@ -27,7 +27,14 @@ define([
             recordCollection.add(recordModel);
             recordModel.save();
 
-            console.log(recordCollection);
+            var data = {
+                records: recordCollection.models,
+                _: _
+            };
+
+            var compiledTemplate = _.template(RecordTemplate, data);
+            this.$el.html(compiledTemplate);
+            this.$('#followview').html(ViewTemplate);
         },        
 
         initialize: function() {

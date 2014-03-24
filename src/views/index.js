@@ -21,7 +21,7 @@ define([
             var recordCollection = new RecordCollection();
             recordCollection.fetch();
             var recordModel = new RecordModel();
-            recordModel.setSelector(target.attr('id'));
+            recordModel.setSelector($(target).attr('id'));
             recordModel.setEvent('click');
 
             recordCollection.add(recordModel);

@@ -18,13 +18,14 @@ define([
         eachClick: function(e) {
             e.preventDefault();
             var target = e.target;
-            var recordCollection = new RecordCollection()
-            var record = new RecordModel();
-            record.setSelector(target);
-            record.setEvent('click');
+            var recordCollection = new RecordCollection();
+            recordCollection.fetch();
+            var recordModel = new RecordModel();
+            recordModel.setSelector(target);
+            recordModel.setEvent('click');
 
-            recordCollection.add(record);
-            record.save();
+            recordCollection.add(recordModel);
+            recordModel.save();
 
             console.log(recordCollection);
         },        

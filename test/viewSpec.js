@@ -1,4 +1,4 @@
-define(['RecordView'], function(RecordView)  {
+define(['recordView'], function(RecordView)  {
 
   describe('RecordView', function() {
 

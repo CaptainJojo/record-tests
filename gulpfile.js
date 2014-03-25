@@ -56,4 +56,4 @@ gulp.task('js-cs-fixer', function () {
         .pipe(jscs());
 });
 
-gulp.task('default', ['js-prod', 'html-prod']);
+gulp.task('default', ['js-prod', 'html-prod', 'requirejs-prod']);

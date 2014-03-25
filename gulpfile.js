@@ -23,7 +23,7 @@ gulp.task('html-prod', function() {
     .pipe(gulp.dest('./build/templates'));
 });
 
-gulp.task('requirejs-prod', function() {
+gulp.task('requirejs-prod', ['html-prod', 'js-prod'], function() {
     rjs({
         baseUrl: './build/src',
         out: 'deploy.js',

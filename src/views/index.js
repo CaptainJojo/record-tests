@@ -7,8 +7,6 @@ define([
 ], function($, _, Backbone, RecordCollection, RecordTemplate) {
 
     var RecordView = Backbone.View.extend({
-        el: $("#content"),
-    
         init: function() {
             var recordCollection = new RecordCollection();
             recordCollection.fetch();

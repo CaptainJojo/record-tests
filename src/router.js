@@ -18,7 +18,7 @@ define([
     var app_router = new AppRouter;
 
     app_router.on('route:homeRecord', function (actions) {
-        var recordView = new RecordView('content');
+        var recordView = new RecordView({el: '#content'});
         recordView.render();
     }); 
 

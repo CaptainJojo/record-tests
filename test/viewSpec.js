@@ -9,7 +9,7 @@ define(['recordView'], function(RecordView)  {
     });
 
     it('Test initialize view', function() {
-        expect(recordView.$('tr').size()).toEqual(2);
+        expect(recordView.$('tr').size()).toEqual(1);
     });
   });
 });

@@ -13,10 +13,11 @@
     "gulp-bower": "~0.0.3"
   },
   "devDependencies": {
-    "karma": "~0.9",
+    "karma": "~0.12",
     "karma-jasmine": "~0.2.1",
     "karma-requirejs": "~0.2.1",
-    "karma-phantomjs-launcher": "~0.1.2"
+    "karma-phantomjs-launcher": "~0.1.2",
+    "karma-coverage": "~0.2.1"
   },
   "scripts": {
     "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"

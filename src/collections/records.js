@@ -1,10 +1,7 @@
 define([
-    'jquery',
-    'underscore',
-    'backbone',
     'localstore',
     'recordModel'
-], function($, _, Backbone, localstore, RecordModel){
+], function(localstore, RecordModel){
     var RecordCollection = Backbone.Collection.extend({
         model: RecordModel, 
         localStorage: new Backbone.LocalStorage("saving"),

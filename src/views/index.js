@@ -1,28 +1,23 @@
 define([
-    'jquery',
-    'underscore',
-    'backbone',
-    'recordCollection',
     'text!templates/record/index.html',
-], function($, _, Backbone, RecordCollection, RecordTemplate) {
+], function(RecordTemplate) {
 
     var RecordView = Backbone.View.extend({
-        init: function() {
-            var recordCollection = new RecordCollection();
-            recordCollection.fetch();
+        initialize: function(options) {
+            this.vent = options.vent;
 
-            var data = {
-                records: recordCollection.models,
-                _: _
-            };
-
-            var compiledTemplate = _.template(RecordTemplate, data);
-            this.$el.html(compiledTemplate);
+            this.vent.bind("addCollection", _.bind(this.render, this));
         },
 
         render: function() {
-            this.$el.html(RecordTemplate);
-            this.init();
+            this.collection.fetch();
+
+            var data = {
+                records: this.collection.models,
+                _: _
+            };
+            var compiledTemplate = _.template(RecordTemplate, data);            
+            this.$el.html(compiledTemplate);
         },
     });
 

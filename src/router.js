@@ -4,8 +4,10 @@ define([
     'underscore',
     'backbone',
     'recordView',
-    'defaultView'
-], function($, _, Backbone, RecordView, DefaultView) {
+    'defaultView', 
+    'recordCollection',
+    'recordModel',
+], function($, _, Backbone, RecordView, DefaultView, RecordCollection, RecordModel) {
 
     var AppRouter = Backbone.Router.extend({
         routes: {
@@ -17,16 +19,18 @@ define([
 
     var app_router = new AppRouter;
 
+    var vent = _.extend({}, Backbone.Events);
+
+    var defaultView = new DefaultView({el: '#followview', 'collection': new RecordCollection(), 'vent': vent});
+    defaultView.render();
+
     app_router.on('route:homeRecord', function (actions) {
-        var recordView = new RecordView({el: '#content'});
+        var recordView = new RecordView({el: '#content',  'collection': new RecordCollection(), 'vent': vent });
         recordView.render();
     }); 
 
-    var defaultView = new DefaultView();
-    defaultView.render();
-
     Backbone.history.start();
-  };
+  };    
   
   return { 
     initialize: initialize

@@ -1,7 +1,5 @@
 define([
-    'underscore',
-    'backbone'
-], function(_, Backbone) {
+], function() {
 
     var RecordModel = Backbone.Model.extend({
         initialize: function Doc() {

@@ -10,7 +10,23 @@ requirejs.config({
         recordCollection: '../src/collections/records',
         recordView: '../src/views/index',
         defaultView: '../src/views/view',
-    }
+    },
+
+    shim: {
+        'underscore': {
+            exports: '_'
+        },
+        'jquery': {
+            exports: '$'
+        },
+        'backbone': {
+            deps: ['underscore', 'jquery'],
+            exports: 'Backbone'
+        },
+        'text' : {
+            exports : 'text'
+        }
+    },
 });
 
 requirejs([

@@ -1,24 +1,12 @@
 define([
-    'jquery',
-    'underscore',
-    'backbone',
     'recordModel',
-    'recordCollection',
-    'recordView',
     'text!templates/view.html',
-], function($, _, Backbone, RecordModel, RecordCollection, RecordView, ViewTemplate) {
+], function(RecordModel, ViewTemplate) {
 
     var DefaultView = Backbone.View.extend({
-        el: $("#followview"),
-
         events: {
             'click': 'eachEvent',
             'change': 'eachEvent',
-            'mouseover': 'eachEvent',
-            'mousedown': 'eachEvent',
-            'mouseenter': 'eachEvent',
-            'mouseout': 'eachEvent',
-            'mouseup': 'eachEvent',
             'dblclick': 'eachEvent',
             'select': 'eachEvent',
             'scroll': 'eachEvent',
@@ -26,18 +14,20 @@ define([
             'keypress': 'eachEvent',
         },
 
+       initialize: function(options){
+        this.vent = options.vent;
+      },
+
         eachEvent: function(e) {
             var target = e.target;
-            var recordCollection = new RecordCollection();
-            recordCollection.fetch();   
+            this.collection.fetch();   
             var recordModel = new RecordModel();
             recordModel.setSelector($(target).attr('id'));
             recordModel.setEvent(e.type);
 
-            recordCollection.add(recordModel);
+            this.collection.add(recordModel);
             recordModel.save();
-            var recordView = new RecordView();
-            recordView.render();
+            this.vent.trigger("addCollection");
         }, 
 
         render: function() {
